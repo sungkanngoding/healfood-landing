@@ -501,6 +501,10 @@ body {
   .hero__description {
     font-size: 1.1rem;
   }
+
+  .hero__avatars {
+    justify-content: center;
+  }
   
   .step {
     grid-template-columns: 1fr;
@@ -538,6 +542,10 @@ body {
   
   .hero__title {
     font-size: 1.8rem;
+  }
+
+  .hero__avatars {
+    justify-content: center;
   }
   
   .section-header__subtitle {
