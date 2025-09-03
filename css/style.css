@@ -179,7 +179,7 @@ body {
 .hero {
   min-height: 100vh;
   background-color: var(--color-background-alt);
-  background-image: url("/img/bg/hero-bg.png");
+  background-image: url("./img/bg/hero-bg.png");
   background-blend-mode: multiply;
   background-repeat: no-repeat;
   background-position: center;
