@@ -142,19 +142,52 @@ body {
   height: auto;
 }
 
+/* Hamburger Menu Toggle */
+.nav-toggle {
+  display: none; /* Sembunyikan checkbox */
+}
+
+.nav-toggle-label {
+  display: none; /* Sembunyikan di desktop */
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+
+.nav-toggle-label span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--color-primary);
+  margin-bottom: 5px;
+  transition: var(--transition);
+  border-radius: 2px;
+}
+
+.nav-toggle-label span:last-child {
+  margin-bottom: 0;
+}
+
+/* Navigation Styles */
+.nav {
+  transition: var(--transition);
+}
+
 .nav__list {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .nav__link {
   text-decoration: none;
   color: var(--color-text);
-  font-size: 1.1rem;
   font-weight: 600;
-  border-radius: 10px;
   padding: 0.5rem 1rem;
+  border-radius: 10px;
   transition: var(--transition);
 }
 
@@ -173,13 +206,18 @@ body {
   background-color: var(--color-primary-dark);
 }
 
+
+.nav__link--highlight:hover {
+  background-color: var(--color-primary-dark);
+}
+
 /* 
   HERO SECTION: Main banner with call-to-action
 */
 .hero {
   min-height: 100vh;
   background-color: var(--color-background-alt);
-  background-image: url("./img/bg/hero-bg.png");
+  background-image: url("/img/bg/hero-bg.png");
   background-blend-mode: multiply;
   background-repeat: no-repeat;
   background-position: center;
@@ -250,7 +288,7 @@ body {
 
 .hero__img {
   width: 100%;
-  max-width: 80%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -390,14 +428,56 @@ body {
 
 @media screen and (max-width: 768px) {
   .header__inner {
-    flex-direction: column;
+    justify-content: space-between;
     gap: 1rem;
   }
   
-  .nav__list {
-    gap: 1rem;
-    flex-wrap: wrap;
+   .nav-toggle-label {
+    display: flex;
+    z-index: 1001;
+  }
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
     justify-content: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .nav__link {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  /* Ketika checkbox dicentang, tampilkan menu */
+  .nav-toggle:checked ~ .nav {
+    transform: translateX(0);
+  }
+  
+  /* Animasi hamburger icon menjadi X */
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
   }
   
   .hero__grid {
@@ -443,10 +523,17 @@ body {
     padding: 0 1rem;
   }
   
-  .nav__list {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+  .header__inner {
+    padding: 0.8rem;
+  }
+  
+  .header__logo-img {
+    width: 120px;
+  }
+  
+  .nav__link {
+    font-size: 1.1rem;
+    padding: 0.7rem 1.2rem;
   }
   
   .hero__title {
@@ -588,7 +675,7 @@ body {
 }
 
 .diet-types__item::before {
-  content: url("./img/ico/nutrition.png");
+  content: url("/img/ico/nutrition.png");
   width: 1.5rem;
   height: 1.5rem;
 }
