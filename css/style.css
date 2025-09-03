@@ -144,11 +144,11 @@ body {
 
 /* Hamburger Menu Toggle */
 .nav-toggle {
-  display: none; /* Sembunyikan checkbox */
+  display: none; 
 }
 
 .nav-toggle-label {
-  display: none; /* Sembunyikan di desktop */
+  display: none; 
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
