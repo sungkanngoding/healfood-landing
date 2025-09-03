@@ -588,7 +588,7 @@ body {
 }
 
 .diet-types__item::before {
-  content: url("/img/ico/nutrition.png");
+  content: url("./img/ico/nutrition.png");
   width: 1.5rem;
   height: 1.5rem;
 }
